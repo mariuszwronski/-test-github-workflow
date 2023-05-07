@@ -1,0 +1,15 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v4
+      - run: python -V
+  Pylint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cclauss/GitHub-Action-for-pylint@0.7.0
+      - run: pylint app.py
